@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acerca de Nosotros</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at center, #0f0f0f, #000000);
+      color: #00ffe7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 15px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      text-shadow: 0 0 15px #00ffe7;
+    }
+    p.intro {
+      max-width: 800px;
+      text-align: justify;
+      line-height: 1.7;
+      margin-bottom: 25px;
+      color: #aafcff;
+    }
+    .equipo {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .integrante {
+      background: rgba(0, 255, 231, 0.05);
+      border: 1px solid #00ffe7;
+      box-shadow: 0 0 20px #00ffe7aa;
+      padding: 20px;
+      border-radius: 15px;
+      width: 220px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .integrante:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px #00ffe7;
+    }
+    .integrante h3 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      color: #00ffe7;
+    }
+    .integrante p {
+      font-size: 0.95rem;
+      color: #aafcff;
+      margin-bottom: 10px;
+    }
+    .integrante img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 10px;
+      box-shadow: 0 0 15px #00ffe7;
+    }
+    a.boton {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: #00ffe7;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00ffe7;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    a.boton:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 35px #00ffe7;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Acerca de Nosotros</h1>
+  <p class="intro">
+    Somos un grupo de estudiantes de bachillerato técnico en desarrollo de software. 
+    Nuestro objetivo con este proyecto es aprender, experimentar y poner en práctica 
+    nuestros conocimientos de programación web para crear un sitio funcional y atractivo.
+    Este trabajo representa el esfuerzo en equipo, la dedicación y las habilidades que 
+    hemos adquirido a lo largo de nuestra formación.
+  </p>
+
+  <div class="equipo">
+    <div class="integrante">
+      <h3>Francisco Eduardo<br>Callejas Deasis</h3>
+      <p>Encargado del sitio web. Me encargué de la estructura principal
+         del sitio y su diseño visual. Busqué que la navegación fuera clara 
+         y fácil de usar para que la experiencia de los usuarios sea agradable. Aprendí a 
+         organizar mejor el contenido y trabajar en equipo.</p>
+      <img src="francisco.jpeg" alt="Foto de Francisco">
+    </div>
+    <div class="integrante">
+      <h3>Jeferson Dagoberto<br>Ramírez Monrroy</h3>
+      <p>Encargado de la documentación. Fui responsable de organizar la información, 
+        escribir los avances y explicar cada etapa del proyecto. Mi objetivo fue dejar 
+        todo bien documentado para que cualquiera pueda entender el proceso y cómo se desarrolló 
+        el sitio.</p>
+      <img src="jeferson.jpeg" alt="Foto de Jeferson">
+    </div>
+    <div class="integrante">
+      <h3>Carlos José<br>Sánchez Gonzales</h3>
+      <p>Encargado de la programación de lentes. Me concentré en la parte técnica del proyecto, 
+        especialmente en la integración de los lentes VR. Fue un reto interesante porque pude aplicar lo 
+        que hemos aprendido sobre programación y realidad virtual.</p>
+      <img src="charly.jpeg" alt="Foto de Carlos">
+    </div>
+    <div class="integrante">
+      <h3>Jonathan Josué<br>Guevara Rivera</h3>
+      <p>Diseñador de decoración e ideas. Me encargué de aportar ideas creativas para la ambientación 
+        y el diseño visual. Ayudé a que el proyecto no solo funcionara bien, sino que también se viera 
+        atractivo y llamara la atención.</p>
+      <img src="jhonatan.jpeg" alt="Foto de Jonathan">
+    </div>
+  </div>
+
+  <a href="proyecto final part 1.html" class="boton">Volver al Menú</a>
+
+</body>
+</html>
