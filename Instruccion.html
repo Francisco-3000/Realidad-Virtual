@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instrucciones de Uso VR</title>
+  <style>
+    /* Reset y estilos base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at center, #0f0f0f, #000000);
+      color: #00ffe7;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    header {
+      background: transparent;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-weight: 900;
+      font-size: 1.8rem;
+      text-shadow: 0 0 10px #00ffe7;
+      color: #00ffe7;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #00ffe7;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00ffe7;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    nav ul li a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 35px #00ffe7;
+      background-color: rgba(0, 255, 231, 0.1);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 28px;
+      height: 4px;
+      background: #00ffe7;
+      border-radius: 2px;
+      box-shadow: 0 0 10px #00ffe7;
+      transition: all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        background: #0f0f0f;
+        height: calc(100% - 60px);
+        width: 220px;
+        flex-direction: column;
+        padding: 30px 20px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        box-shadow: -2px 0 15px rgba(0,255,231,0.4);
+        border-left: 2px solid #00ffe7;
+        z-index: 999;
+      }
+      nav ul.open {
+        transform: translateX(0);
+      }
+      nav ul li a {
+        box-shadow: 0 0 15px #00ffe7;
+        margin-bottom: 20px;
+        padding: 14px 20px;
+        font-size: 1.2rem;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+    main {
+      margin: 40px auto 60px;
+      max-width: 900px;
+      background: rgba(0, 255, 231, 0.05);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #00ffe7aa;
+    }
+    main h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2.2rem;
+      text-shadow: 0 0 10px #00ffe7;
+    }
+    main p {
+      margin-bottom: 15px;
+    }
+    .btn-back {
+      display: block;
+      width: fit-content;
+      margin: 30px auto 0;
+      background: #00ffe7;
+      color: #000;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 0 20px #00ffe7;
+      transition: transform 0.3s ease, box-shadow 0 0 30px #00ffe7;
+    }
+    .btn-back:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 35px #00ffe7;
+    }
+    /* Estilos específicos para imágenes y video */
+    .media-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .media-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00ffe7;
+    }
+    .media-container video {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00ffe7;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Instrucciones VR</div>
+  <nav>
+    <ul id="nav-menu">
+      <li><a href="pagina_principal.html">Inicio</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="modelo de lentes.html">Modelos</a></li>
+    </ul>
+  </nav>
+  <div class="hamburger" id="hamburger" aria-label="Abrir menú" role="button" tabindex="0" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<main>
+  <h2>Cómo usar los lentes VR</h2>
+
+  <!-- Imagen desde internet -->
+  
+  <p>
+    Los lentes de realidad virtual deben colocarse sobre los ojos con comodidad, ajustando las correas para que no queden sueltos ni muy apretados.
+  </p>
+   <div class="media-container">
+    <img src="Lentes puestos.jpg"
+         alt="Persona usando lentes VR" />
+  </div>
+
+  <p>
+    Ajusta la distancia interpupilar (IPD) si el dispositivo lo permite, para que la imagen se vea nítida y sin fatiga visual.
+  </p>
+  <p>
+    Comienza con entornos simples o experiencias suaves para acostumbrar el ojo. Evita cambios bruscos de cámara si eres principiante.
+  </p>
+  <p>
+    En sesiones prolongadas, haz pausas frecuentes y asegúrate de que las lentes estén limpias para evitar reflejos molestos.
+  </p>
+
+  <!-- Video desde internet -->
+  <div class="media-container">
+    <!-- Ejemplo de video desde Pixabay (VR) -->
+    <video src="Lentes instruccion.mp4" controls></video>
+  </div>
+
+  <a href="pagina_principal.html" class="btn-back">Volver al menú</a>
+</main>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+
+  function toggleMenu() {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', String(!expanded));
+    hamburger.classList.toggle('open');
+    navMenu.classList.toggle('open');
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+  hamburger.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleMenu();
+    }
+  });
+
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
