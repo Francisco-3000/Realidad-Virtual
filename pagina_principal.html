@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Menú VR + Info Lentes</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: radial-gradient(circle at center, #0f0f0f, #000000); color: #00ffe7; min-height: 100vh; }
+
+  header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 20px; position: sticky; top: 0; z-index: 1000;
+    background: transparent;
+  }
+  .logo { font-weight: 900; font-size: 1.8rem; text-shadow: 0 0 10px #00ffe7; color: #00ffe7; }
+
+  nav { position: relative; }
+  nav ul {
+    list-style: none; display: flex; gap: 25px;
+    transition: transform 0.3s ease;
+  }
+  nav ul li a {
+    text-decoration: none; color: #00ffe7; font-weight: 700; padding: 12px 24px;
+    border-radius: 10px; box-shadow: 0 0 20px #00ffe7; display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  nav ul li a:hover { transform: scale(1.1); box-shadow: 0 0 35px #00ffe7; background-color: rgba(0,255,231,0.1); }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; }
+  .hamburger span { width: 28px; height: 4px; background: #00ffe7; border-radius: 2px; box-shadow: 0 0 10px #00ffe7; transition: all 0.3s ease; }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  @media (max-width: 768px) {
+    nav ul {
+      position: fixed; top: 60px; right: 0;
+      flex-direction: column; width: 220px; height: calc(100% - 60px);
+      background: #0f0f0f; padding: 30px 20px; transform: translateX(100%);
+      box-shadow: -2px 0 15px rgba(0,255,231,0.4); border-left: 2px solid #00ffe7; z-index: 999;
+    }
+    nav ul.open { transform: translateX(0); }
+    nav ul li a { margin-bottom: 20px; padding: 14px 20px; font-size: 1.2rem; box-shadow: 0 0 15px #00ffe7; }
+    .hamburger { display: flex; }
+  }
+
+  main.info-vr {
+    max-width: 900px; margin: 40px auto 60px; padding: 20px 25px;
+    background: rgba(0, 255, 231, 0.05); border-radius: 15px; box-shadow: 0 0 25px #00ffe7aa;
+    color: #aafcff; line-height: 1.6; font-size: 1.1rem; text-align: justify;
+  }
+  main.info-vr h2 { text-align: center; margin-bottom: 20px; font-weight: 900; font-size: 2.5rem; text-shadow: 0 0 10px #00ffe7; color: #00ffe7; }
+  main.info-vr p { margin-bottom: 15px; }
+  .vr-buttons { text-align: center; margin-top: 30px; }
+  .vr-buttons a {
+    display: inline-block; background: #00ffe7; color: #000; padding: 14px 28px;
+    margin: 10px; font-size: 1rem; font-weight: bold; border-radius: 10px; text-decoration: none;
+    box-shadow: 0 0 20px #00ffe7; transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .vr-buttons a:hover { transform: scale(1.1); box-shadow: 0 0 35px #00ffe7; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Menú VR</div>
+  <nav>
+    <ul id="nav-menu">
+      <li><a href="proyecto final part 1.html">Inicio</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="acerca.html">Acerca</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+  <div class="hamburger" id="hamburger" aria-label="Abrir menú" role="button" tabindex="0" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<main class="info-vr">
+  <h2>Lentes de Realidad Virtual</h2>
+  <p>Los lentes de realidad virtual (VR) son dispositivos que permiten al usuario sumergirse en un entorno generado por computadora, proporcionando una experiencia inmersiva que simula la realidad o mundos totalmente nuevos.</p>
+  <p>Estos dispositivos generalmente incluyen pantallas frente a los ojos, sensores de movimiento, y audífonos para crear una sensación multisensorial completa.</p>
+  <p>La realidad virtual se usa en videojuegos, simuladores de entrenamiento, educación, diseño y otras áreas innovadoras que requieren interacción tridimensional y realismo.</p>
+  <p>Algunos de los lentes VR más populares incluyen Oculus Quest, HTC Vive y PlayStation VR, cada uno con características y capacidades únicas.</p>
+
+  <div class="vr-buttons">
+    <a href="instruccion.html">Instrucciones de Uso</a>
+    <a href="modelo de lentes.html">Modelos de Lentes</a>
+     <a href="pasos de proyecto.html">proyecto</a>
+  </div>
+</main>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+
+  function toggleMenu() {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', String(!expanded));
+    hamburger.classList.toggle('open');
+    navMenu.classList.toggle('open');
+  }
+
+  hamburger.addEventListener('click', toggleMenu);
+  hamburger.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
+  });
+
+  // Cierra el menú cuando se hace clic en un enlace
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
