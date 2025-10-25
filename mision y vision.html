@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Misión y Visión - Proyecto VR</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+  body { 
+    font-family: 'Segoe UI', sans-serif; 
+    background: radial-gradient(circle at center, #0f0f0f, #000000); 
+    color: #00ffe7; 
+    min-height: 100vh; 
+    overflow-x: hidden;
+  }
+
+  /* Fondo animado */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(0,255,231,0.15) 0%, transparent 70%);
+    animation: glow 5s ease-in-out infinite alternate;
+    z-index: -1;
+  }
+  @keyframes glow {
+    from { opacity: 0.3; transform: scale(1); }
+    to { opacity: 0.6; transform: scale(1.2); }
+  }
+
+  header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 20px; position: sticky; top: 0; z-index: 1000;
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(6px);
+  }
+  .logo { font-weight: 900; font-size: 1.8rem; text-shadow: 0 0 10px #00ffe7; color: #00ffe7; }
+
+  nav ul {
+    list-style: none; display: flex; gap: 25px;
+  }
+  nav ul li a {
+    text-decoration: none; color: #00ffe7; font-weight: 700; padding: 12px 24px;
+    border-radius: 10px; box-shadow: 0 0 20px #00ffe7; display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  nav ul li a:hover { transform: scale(1.1); box-shadow: 0 0 35px #00ffe7; background-color: rgba(0,255,231,0.1); }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 28px; height: 4px; background: #00ffe7; border-radius: 2px; box-shadow: 0 0 10px #00ffe7; }
+
+  @media (max-width: 768px) {
+    nav ul {
+      position: fixed; top: 60px; right: 0;
+      flex-direction: column; width: 220px; height: calc(100% - 60px);
+      background: #0f0f0f; padding: 30px 20px; transform: translateX(100%);
+      box-shadow: -2px 0 15px rgba(0,255,231,0.4); border-left: 2px solid #00ffe7;
+      transition: transform 0.3s ease;
+    }
+    nav ul.open { transform: translateX(0); }
+    .hamburger { display: flex; }
+  }
+
+  main.info-vr {
+    max-width: 900px; margin: 60px auto 80px; padding: 30px 35px;
+    background: rgba(0, 255, 231, 0.05); border-radius: 15px; box-shadow: 0 0 25px #00ffe7aa;
+    color: #aafcff; line-height: 1.6; font-size: 1.1rem; text-align: justify;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  main.info-vr h2 {
+    text-align: center; margin-bottom: 20px;
+    font-weight: 900; font-size: 2.6rem;
+    text-shadow: 0 0 15px #00ffe7, 0 0 25px #00bfa5;
+    color: #00ffe7; letter-spacing: 1px;
+    animation: pulse 3s infinite alternate;
+  }
+
+  @keyframes pulse {
+    from { text-shadow: 0 0 10px #00ffe7; }
+    to { text-shadow: 0 0 25px #00fff2; }
+  }
+
+  .section {
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section img {
+    display: block;
+    margin: 25px auto;
+    width: 220px;
+    border-radius: 10px;
+    box-shadow: 0 0 25px #00ffe7aa;
+    transition: transform 0.4s ease;
+  }
+  .section img:hover {
+    transform: scale(1.05);
+  }
+
+  .vr-buttons { text-align: center; margin-top: 40px; }
+  .vr-buttons a {
+    display: inline-block; background: #00ffe7; color: #000; padding: 14px 28px;
+    margin: 10px; font-size: 1rem; font-weight: bold; border-radius: 10px; text-decoration: none;
+    box-shadow: 0 0 20px #00ffe7; transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .vr-buttons a:hover { transform: scale(1.1); box-shadow: 0 0 35px #00ffe7; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Menú VR</div>
+  <nav>
+    <ul id="nav-menu">
+      <li><a href="proyecto final part 1.html">Inicio</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="acerca.html">Acerca</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+  <div class="hamburger" id="hamburger" aria-label="Abrir menú" role="button">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<main class="info-vr">
+  <section class="section">
+    <h2>Misión</h2>
+    <p>
+      Nuestra misión es crear experiencias tecnológicas que inspiren y eduquen. 
+      A través del uso de la realidad virtual, buscamos combinar la creatividad con la programación 
+      para desarrollar entornos que permitan a las personas aprender y disfrutar de manera inmersiva.
+    </p>
+    <p>
+      Queremos que la tecnología sea una herramienta que motive a los jóvenes a explorar el mundo del software, 
+      desarrollando ideas que impulsen el aprendizaje y la innovación en El Salvador y más allá.
+    </p>
+   
+  </section>
+
+  <section class="section">
+    <h2>Visión</h2>
+    <p>
+      Nuestra visión es formarnos en un equipo reconocido por su capacidad de transformar ideas 
+      en experiencias digitales reales. Buscamos crecer como profesionales, combinando diseño, programación 
+      y creatividad para seguir impulsando la tecnología educativa.
+    </p>
+    <p>
+      A futuro, queremos que este proyecto sea la base de otros desarrollos que integren la realidad virtual 
+      con el aprendizaje, demostrando que los jóvenes salvadoreños pueden innovar con pasión y talento.
+    </p>
+   
+  </section>
+
+  <div class="vr-buttons">
+    <a href="acerca.html">Acerca de nosotros</a>
+    <a href="pagina_principal.html">Volver al menu</a>
+  </div>
+</main>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navMenu.classList.toggle('open');
+  });
+
+  // Animación al hacer scroll
+  const sections = document.querySelectorAll('.section');
+  window.addEventListener('scroll', () => {
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if(rect.top < window.innerHeight - 100) {
+        sec.classList.add('visible');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
